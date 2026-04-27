@@ -1,0 +1,40 @@
+# PID Tuning Guide
+
+## Altitude PID
+
+Increase Kp:
+- Faster takeoff
+- Too high = oscillation
+
+Increase Ki:
+- Removes steady-state altitude error
+
+Increase Kd:
+- Reduces bounce / overshoot
+
+---
+
+## Drift PID (X,Y)
+
+Increase Kp:
+- Faster drift correction
+
+Too high:
+- Aggressive twitching
+
+Kd:
+- Smooth movement
+
+---
+
+## Recommended Start Values
+
+Altitude:
+Kp = 0.4
+Ki = 0.02
+Kd = 0.25
+
+XY:
+Kp = 0.3
+Ki = 0.01
+Kd = 0.15
