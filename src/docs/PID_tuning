@@ -1,40 +1,66 @@
-# PID Tuning Guide
+# 🎮 PID Tuning Guide for Autonomous Drone
 
-## Altitude PID
-
-Increase Kp:
-- Faster takeoff
-- Too high = oscillation
-
-Increase Ki:
-- Removes steady-state altitude error
-
-Increase Kd:
-- Reduces bounce / overshoot
+This guide provides a systematic approach to tuning the Proportional-Integral-Derivative (PID) controllers used for altitude hold and drift correction in GPS-denied environments.
 
 ---
 
-## Drift PID (X,Y)
+## 🛠 The PID Components
 
-Increase Kp:
-- Faster drift correction
-
-Too high:
-- Aggressive twitching
-
-Kd:
-- Smooth movement
+| Term | Name | Function | Effect of Increasing |
+| :--- | :--- | :--- | :--- |
+| **Kp** | Proportional | The "Strength" | Faster response, but too much causes oscillations. |
+| **Ki** | Integral | The "Correction" | Removes steady-state error (e.g., drone hovering too low). |
+| **Kd** | Derivative | The "Damping" | Reduces overshoot and "bounciness" by predicting errors. |
 
 ---
 
-## Recommended Start Values
+## 🛰 Tuning Procedure (Step-by-Step)
 
-Altitude:
-Kp = 0.4
-Ki = 0.02
-Kd = 0.25
+### 1. Altitude Tuning
+Goal: Achieve a stable hover at the target altitude without "hunting" up and down.
 
-XY:
-Kp = 0.3
-Ki = 0.01
-Kd = 0.15
+1.  **Set Ki and Kd to 0.** Start with a low **Kp** (e.g., 0.1).
+2.  Increase **Kp** until the drone takes off and starts to oscillate around the target altitude.
+3.  Add **Kd** to dampen the oscillations. Increase it until the altitude becomes stable.
+4.  If the drone consistently stays slightly below the target, slowly increase **Ki** to pull it up to the exact setpoint.
+
+> [!TIP]
+> High-performance LiDAR sensors allow for higher **Kd** values, leading to "locked-in" altitude hold.
+
+### 2. Drift Correction (Optical Flow)
+Goal: Stop the drone from drifting horizontally in the wind or due to its own momentum.
+
+1.  Ensure the Optical Flow sensor is focused and providing clear data.
+2.  Tune **Kp** until the drone reacts quickly to drift but doesn't "twitch" aggressively.
+3.  Use **Kd** to smooth out the correction and prevent the drone from over-correcting and swinging back and forth.
+
+---
+
+## 📊 Recommended Start Values
+
+These values are calibrated for a standard 450mm quadcopter using the [config.py](file:///c:/Users/hp/Documents/GPS-denied%20drone/src/config.py) defaults.
+
+### Altitude PID
+- **Kp:** `0.40`
+- **Ki:** `0.02`
+- **Kd:** `0.25`
+
+### XY (Drift) PID
+- **Kp:** `0.30`
+- **Ki:** `0.01`
+- **Kd:** `0.15`
+
+---
+
+## ⚠️ Troubleshooting
+
+> [!WARNING]
+> **Aggressive Twitching:** Usually caused by a **Kp** value that is too high or sensor noise. Lower Kp or increase Kd slightly.
+
+> [!CAUTION]
+> **Slow Descent/Ascent:** If the drone takes too long to reach altitude, increase Kp. If it never reaches the target, increase Ki.
+
+---
+
+## 🧪 Simulation Testing
+Before flying with real hardware, it is highly recommended to test your PID logic in **SITL (Software In The Loop)** using Gazebo or ArduPilot's internal simulator.

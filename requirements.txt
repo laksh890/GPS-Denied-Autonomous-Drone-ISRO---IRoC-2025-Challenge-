@@ -1,4 +1,4 @@
-Install these libraries inside raspberry pi virtual env connected to pixhawk
 dronekit
 pymavlink
 numpy
+argparse

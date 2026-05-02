@@ -1,26 +1,31 @@
 import argparse
 from drone.logger import setup_logger
-from controllers.pid import PIDController
 from drone.connection import connect_vehicle
+from drone.controller import DroneController
 from drone.mission import takeoff, hover, land
 from config import *
 
 logger = setup_logger()
 logger.info("Mission Started")
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--connect', default='/dev/ttyACM0')
 args = parser.parse_args()
 
+# Connect to the vehicle
 vehicle = connect_vehicle(args.connect)
 
-alt_pid = PIDController(ALT_KP, ALT_KI, ALT_KD)
-x_pid = PIDController(XY_KP, XY_KI, XY_KD)
-y_pid = PIDController(XY_KP, XY_KI, XY_KD)
+# Initialize the High-Level Controller
+drone = DroneController(vehicle)
 
 try:
-    takeoff(vehicle, alt_pid, x_pid, y_pid, TARGET_ALTITUDE)
-    hover(vehicle, alt_pid, x_pid, y_pid, TARGET_ALTITUDE, HOVER_TIME)
-    land(vehicle, x_pid, y_pid)
+    takeoff(drone, TARGET_ALTITUDE)
+    hover(drone, TARGET_ALTITUDE, HOVER_TIME)
+    land(drone)
 
 except KeyboardInterrupt:
-    land(vehicle, x_pid, y_pid)
+    logger.warning("Mission interrupted by user.")
+    land(drone)
+except Exception as e:
+    logger.error(f"Critical error: {e}")
+    land(drone)
