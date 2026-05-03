@@ -59,7 +59,7 @@ The drone's internal architecture is meticulously planned for component protecti
 The frame incorporates a specialized **Lead Screw based adjustable H-arm joint** system. This mechanism is designed to provide the UAV with a stable landing platform on inclinations of up to **15 degrees**, ensuring operational versatility in rugged terrains.
 
 #### 🎥 Arm Movement Demo (Initial Testing)
-<video src="assets/videos/arm_movement.mp4" muted autoplay loop width="500" height="350"></video>
+<video src="https://raw.githubusercontent.com/laksh890/GPS-Denied-Autonomous-Drone-ISRO---IRoC-2025-Challenge-/main/assets/videos/arm_movement.mp4" muted autoplay loop width="500" height="350"></video>
 
 ---
 
@@ -69,15 +69,15 @@ The development process involved iterative testing, progressing from mechanical 
 
 ### 1. H-Bridge UAV: First Remote Operated Flight Test
 Testing the structural integrity and flight characteristics of the 3D-printed H-bridge frame.
-<video src="assets/videos/hbridge_flight_test.mp4" muted autoplay loop width="500" height="350"></video>
+<video src="https://raw.githubusercontent.com/laksh890/GPS-Denied-Autonomous-Drone-ISRO---IRoC-2025-Challenge-/main/assets/videos/hbridge_flight_test.mp4" muted autoplay loop width="500" height="350"></video>
 
 ### 2. Semi-Stable PID Control (Autonomous)
 Initial autonomous testing on an X-frame drone using barometer for altitude and accelerometer for drift correction.
-<video src="assets/videos/semistable_pid_test.mp4" muted autoplay loop width="500" height="350"></video>
+<video src="https://raw.githubusercontent.com/laksh890/GPS-Denied-Autonomous-Drone-ISRO---IRoC-2025-Challenge-/main/assets/videos/semistable_pid_test.mp4" muted autoplay loop width="500" height="350"></video>
 
 ### 3. Fully Stable Autonomous PID Algorithm
 Advanced testing with sensor fusion (Optical Flow for drift and LiDAR ToF for precision altitude control) on the X-frame platform.
-<video src="assets/videos/autonomous_flight_test.mp4" muted autoplay loop width="500" height="350"></video>
+<video src="https://raw.githubusercontent.com/laksh890/GPS-Denied-Autonomous-Drone-ISRO---IRoC-2025-Challenge-/main/assets/videos/autonomous_flight_test.mp4" muted autoplay loop width="500" height="350"></video>
 
 ### 🏆 Final Submission Showcase
 Watch the final mission with all failsafes and autonomous systems in action:
