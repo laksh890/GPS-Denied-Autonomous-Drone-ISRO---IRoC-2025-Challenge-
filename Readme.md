@@ -22,10 +22,12 @@ The system uses onboard sensors (Optical Flow, IMU, Rangefinder) to estimate pos
 
 ---
 
-## 📄 Project Documentation
+## 📄 Project Documentation Youtube Video 
 
 For a deep dive into the mechanical and electrical analysis, please refer to our formal proposal:
 👉 **[Full Project Proposal & Technical Report](https://drive.google.com/file/d/1DtLQk2ciU6UJ7kkSxyrs7WJx4UHbMjwY/view?usp=drive_link)**
+
+👉 **[You Tube Video Link](https://youtu.be/tSXcJss_m8Q)**
 
 ---
 
