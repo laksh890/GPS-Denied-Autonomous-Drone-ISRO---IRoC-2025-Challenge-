@@ -81,6 +81,7 @@ Advanced testing with sensor fusion (Optical Flow for drift and LiDAR ToF for pr
 
 ### 🏆 Final Submission Showcase
 Watch the final mission with all failsafes and autonomous systems in action:
+YT video link: https://youtu.be/tSXcJss_m8Q
 [![Final Submission](https://img.youtube.com/vi/tSXcJss_m8Q/0.jpg)](https://youtu.be/tSXcJss_m8Q)
 
 ---
