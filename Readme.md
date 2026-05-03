@@ -177,7 +177,7 @@ python src/main.py --connect /dev/ttyACM0
 
 ---
 
-## 📈 Roadmap
+## 📈 Future Roadmap
 
 - [ ] **ArUco Marker Precision Landing:** Visual docking for battery replacement.
 - [ ] **Obstacle Avoidance:** Integration of 360-degree LiDAR.
